@@ -1,0 +1,20 @@
+@startuml
+class PizzaApp
+class DataBaseManager {
+  +__init__(connection_string)
+}
+class Authenticator {
+  +__init__(user_database)
+}
+class PaymentProcessor {
+  +__init__(api_key)
+}
+class OrderManager {
+  +__init__(database_manager, authenticator, payment_processor)
+}
+
+PizzaApp --> OrderManager
+OrderManager --> DataBaseManager
+OrderManager --> Authenticator
+OrderManager --> PaymentProcessor
+@enduml
